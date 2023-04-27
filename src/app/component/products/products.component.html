@@ -1,0 +1,37 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://static.autox.com/uploads/2021/04/SMEV-releases-Electric-Vehicle-sales-report-for-FY-20-21.jpg" alt="">
+                <h6>All</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('two')">
+                <img src="https://www.team-bhp.com/sites/default/files/styles/large/public/BT.JPG" alt="">
+                <h6>2Wheelers</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('four')">
+                <img src="https://img.indianauto.com/2020/09/13/FAr9zoZE/tata-nexon-maruti-vitara-brezza-sales-052c.jpg" alt="">
+                <h6>4Wheelers</h6>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterType | filter:searchKey: 'company'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5>{{item.company}}</h5>
+                <p>{{item.name}} {{item.model}}</p>
+                <p><strong>Price: </strong>${{item.price}}</p>
+                <button class="btn btn-primary">Buy Now</button>
+    
+            </div>
+        </ng-container>
+    </div>
+</div>
